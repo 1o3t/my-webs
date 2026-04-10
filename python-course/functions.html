@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数基础 - Python基础课程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        accent1: '#f59e0b',
+                        accent2: '#8b5cf6',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+            .code-block {
+                @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white bg-opacity-90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-playfair font-bold text-primary">Python基础课程</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="font-medium hover:text-primary transition-colors">首页</a>
+                <a href="syntax.html" class="font-medium hover:text-primary transition-colors">基础语法</a>
+                <a href="data-structures.html" class="font-medium hover:text-primary transition-colors">数据结构</a>
+                <a href="functions.html" class="font-medium text-primary">函数基础</a>
+                <a href="practice.html" class="font-medium hover:text-primary transition-colors">实战练习</a>
+            </div>
+            <button class="md:hidden text-gray-700">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-playfair font-bold mb-4">Python函数基础</h1>
+            <p class="text-gray-600 max-w-2xl">
+                学习函数的定义、参数传递、返回值和作用域等基本概念，掌握函数的使用方法。
+            </p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Main Content -->
+                <div class="lg:w-2/3">
+                    <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                        <h2 class="text-2xl font-playfair font-bold mb-6">函数的定义和调用</h2>
+                        <p class="text-gray-700 mb-6">
+                            函数是一段可重用的代码块，用于执行特定的任务。在Python中，使用def关键字定义函数。
+                        </p>
+                        <div class="code-block mb-8">
+                            <pre><code># 定义函数
+def greet():
+    """打印问候语"""
+    print("Hello, World!")
+
+# 调用函数
+greet()
+
+# 带参数的函数
+def greet_name(name):
+    """打印带名字的问候语"""
+    print(f"Hello, {name}!")
+
+# 调用带参数的函数
+greet_name("Alice")
+
+# 带返回值的函数
+def add(a, b):
+    """计算两个数的和并返回结果"""
+    return a + b
+
+# 调用带返回值的函数
+result = add(5, 3)
+print(f"5 + 3 = {result}")</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                        <h2 class="text-2xl font-playfair font-bold mb-6">函数参数</h2>
+                        <p class="text-gray-700 mb-6">
+                            Python函数支持多种类型的参数，包括位置参数、默认参数、关键字参数和可变参数。
+                        </p>
+                        <div class="code-block mb-8">
+                            <pre><code># 位置参数
+def describe_pet(animal_type, pet_name):
+    """描述宠物"""
+    print(f"I have a {animal_type}.")
+    print(f"My {animal_type}'s name is {pet_name}.")
+
+# 按位置传递参数
+describe_pet("dog", "Buddy")
+
+# 关键字参数
+describe_pet(pet_name="Charlie", animal_type="cat")
+
+# 默认参数
+def describe_pet_default(pet_name, animal_type="dog"):
+    """描述宠物，默认动物类型为狗"""
+    print(f"I have a {animal_type}.")
+    print(f"My {animal_type}'s name is {pet_name}.")
+
+# 使用默认参数
+describe_pet_default("Max")  # 使用默认值 "dog"
+describe_pet_default("Luna", "cat")  # 覆盖默认值
+
+# 可变参数（*args）
+def make_pizza(*toppings):
+    """打印披萨的配料"""
+    print("Making a pizza with the following toppings:")
+    for topping in toppings:
+        print(f"- {topping}")
+
+# 传递可变参数
+make_pizza("pepperoni")
+make_pizza("mushrooms", "green peppers", "extra cheese")
+
+# 关键字可变参数（**kwargs）
+def build_profile(first, last, **user_info):
+    """创建用户资料"""
+    user_info["first_name"] = first
+    user_info["last_name"] = last
+    return user_info
+
+# 传递关键字可变参数
+user_profile = build_profile("Alice", "Smith", age=25, city="New York", occupation="Engineer")
+print(user_profile)</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                        <h2 class="text-2xl font-playfair font-bold mb-6">函数作用域</h2>
+                        <p class="text-gray-700 mb-6">
+                            作用域是指变量的可见范围。Python中有局部作用域和全局作用域。
+                        </p>
+                        <div class="code-block mb-8">
+                            <pre><code># 全局变量
+x = 10
+
+def print_global():
+    """打印全局变量"""
+    print(f"Global x: {x}")
+
+print_global()
+
+# 局部变量
+def print_local():
+    """打印局部变量"""
+    y = 20  # 局部变量
+    print(f"Local y: {y}")
+
+print_local()
+# print(y)  # 会报错，因为y是局部变量
+
+# 修改全局变量
+def modify_global():
+    """修改全局变量"""
+    global x  # 声明使用全局变量
+    x = 30
+    print(f"Modified global x: {x}")
+
+modify_global()
+print(f"Global x after modification: {x}")
+
+# 嵌套函数
+def outer_function():
+    """外部函数"""
+    outer_var = "outer"
+    
+    def inner_function():
+        """内部函数"""
+        inner_var = "inner"
+        print(f"Inner function: {inner_var}")
+        print(f"Inner function can access outer var: {outer_var}")
+    
+    inner_function()
+    print(f"Outer function: {outer_var}")
+    # print(inner_var)  # 会报错，因为inner_var是内部函数的局部变量
+
+outer_function()</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-md p-8">
+                        <h2 class="text-2xl font-playfair font-bold mb-6">Lambda函数</h2>
+                        <p class="text-gray-700 mb-6">
+                            Lambda函数是一种小型的匿名函数，使用lambda关键字定义，通常用于简单的操作。
+                        </p>
+                        <div class="code-block mb-8">
+                            <pre><code># 定义lambda函数
+double = lambda x: x * 2
+
+# 调用lambda函数
+result = double(5)
+print(f"Double of 5: {result}")
+
+# lambda函数作为参数
+def apply_function(func, value):
+    """应用函数到值"""
+    return func(value)
+
+# 使用lambda函数作为参数
+result = apply_function(lambda x: x ** 2, 4)
+print(f"Square of 4: {result}")
+
+# 在列表排序中使用lambda
+students = [
+    {"name": "Alice", "grade": 95},
+    {"name": "Bob", "grade": 88},
+    {"name": "Charlie", "grade": 92}
+]
+
+# 按成绩排序
+students.sort(key=lambda student: student["grade"], reverse=True)
+print("Students sorted by grade:")
+for student in students:
+    print(f"{student['name']}: {student['grade']}")
+
+# 过滤列表
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(f"Even numbers: {even_numbers}")
+
+# 映射列表
+squared_numbers = list(map(lambda x: x ** 2, numbers))
+print(f"Squared numbers: {squared_numbers}")</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:w-1/3">
+                    <!-- Table of Contents -->
+                    <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                        <h3 class="text-xl font-semibold mb-4">目录</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-primary hover:underline">函数的定义和调用</a></li>
+                            <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">函数参数</a></li>
+                            <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">函数作用域</a></li>
+                            <li><a href="#" class="text-gray-700 hover:text-primary transition-colors">Lambda函数</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Learning Tips -->
+                    <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                        <h3 class="text-xl font-semibold mb-4">学习提示</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa fa-lightbulb-o text-accent1 mt-1 mr-3"></i>
+                                <span class="text-gray-700">使用文档字符串（docstring）为函数添加说明</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-lightbulb-o text-accent1 mt-1 mr-3"></i>
+                                <span class="text-gray-700">尽量保持函数的单一职责，一个函数只做一件事</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-lightbulb-o text-accent1 mt-1 mr-3"></i>
+                                <span class="text-gray-700">使用默认参数可以使函数更加灵活</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-lightbulb-o text-accent1 mt-1 mr-3"></i>
+                                <span class="text-gray-700">Lambda函数适用于简单的操作，复杂逻辑应该使用常规函数</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Next Module -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-xl font-semibold mb-4">下一模块</h3>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent2/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fa fa-laptop-code text-accent2 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">实战练习</h4>
+                                <p class="text-sm text-gray-600">通过实际练习巩固所学知识</p>
+                                <a href="practice.html" class="inline-block mt-2 text-accent2 hover:underline">
+                                    继续学习
+                                    <i class="fa fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-playfair font-bold mb-4">Python基础课程</h3>
+                    <p class="text-gray-400">
+                        专注于培养基础的Python编程素养
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">课程内容</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="syntax.html" class="text-gray-400 hover:text-white transition-colors">基础语法</a></li>
+                        <li><a href="data-structures.html" class="text-gray-400 hover:text-white transition-colors">数据结构</a></li>
+                        <li><a href="functions.html" class="text-gray-400 hover:text-white transition-colors">函数基础</a></li>
+                        <li><a href="practice.html" class="text-gray-400 hover:text-white transition-colors">实战练习</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-envelope mr-2"></i>
+                            <span>contact@example.com</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-github mr-2"></i>
+                            <span>github.com/1o3t</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 Python基础课程. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python基础课程 - 独立学习站点</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        accent1: '#f59e0b',
+                        accent2: '#8b5cf6',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+            .code-block {
+                @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white bg-opacity-90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-playfair font-bold text-primary">Python基础课程</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="font-medium text-primary">首页</a>
+                <a href="syntax.html" class="font-medium hover:text-primary transition-colors">基础语法</a>
+                <a href="data-structures.html" class="font-medium hover:text-primary transition-colors">数据结构</a>
+                <a href="functions.html" class="font-medium hover:text-primary transition-colors">函数基础</a>
+                <a href="practice.html" class="font-medium hover:text-primary transition-colors">实战练习</a>
+            </div>
+            <button class="md:hidden text-gray-700">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-playfair font-bold text-gray-800 mb-4">
+                        Python<span class="text-primary">基础课程</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        从零基础开始学习Python编程，掌握基础语法、数据结构和核心编程概念，为你的编程之旅打下坚实基础。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="syntax.html" class="px-6 py-3 bg-primary text-white rounded-lg shadow-md hover:bg-primary/90 transition-colors">
+                            开始学习
+                        </a>
+                        <a href="#overview" class="px-6 py-3 bg-white text-primary border border-primary rounded-lg hover:bg-gray-50 transition-colors">
+                            课程概览
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 w-24 h-24 bg-accent1/20 rounded-full"></div>
+                        <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-accent2/20 rounded-full"></div>
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=python%20programming%20code%20on%20screen&image_size=landscape_16_9" alt="Python编程" class="w-full h-auto rounded-xl shadow-lg relative z-10">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview -->
+    <section id="overview" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-playfair font-bold mb-4">课程概览</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    本课程专注于培养基础的Python编程素养，通过系统的学习路径，帮助你掌握Python的核心概念和实用技能。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Module 1 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-code text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">基础语法</h3>
+                    <p class="text-gray-600 mb-4">学习Python的基本语法规则，包括变量、数据类型、运算符和控制流程。</p>
+                    <a href="syntax.html" class="inline-flex items-center text-primary font-medium">
+                        查看详情
+                        <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <!-- Module 2 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-sitemap text-secondary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">数据结构</h3>
+                    <p class="text-gray-600 mb-4">掌握Python的内置数据结构，包括列表、元组、字典和集合的使用方法。</p>
+                    <a href="data-structures.html" class="inline-flex items-center text-secondary font-medium">
+                        查看详情
+                        <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <!-- Module 3 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 bg-accent1/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-cogs text-accent1 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">函数基础</h3>
+                    <p class="text-gray-600 mb-4">学习函数的定义、参数传递、返回值和作用域等基本概念。</p>
+                    <a href="functions.html" class="inline-flex items-center text-accent1 font-medium">
+                        查看详情
+                        <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <!-- Module 4 -->
+                <div class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 bg-accent2/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-laptop-code text-accent2 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">实战练习</h3>
+                    <p class="text-gray-600 mb-4">通过实际编程练习巩固所学知识，提高编程技能。</p>
+                    <a href="practice.html" class="inline-flex items-center text-accent2 font-medium">
+                        查看详情
+                        <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-playfair font-bold mb-4">学习路径</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    按照以下路径系统学习Python基础，逐步构建编程技能
+                </p>
+            </div>
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/20"></div>
+                
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row items-center mb-12">
+                    <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                        <h3 class="text-2xl font-playfair font-bold mb-2">环境搭建</h3>
+                        <p class="text-gray-600">安装Python解释器，配置开发环境，选择适合的IDE或编辑器。</p>
+                    </div>
+                    <div class="md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold z-10">1</div>
+                    <div class="md:w-1/2 md:pl-12"></div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row items-center mb-12">
+                    <div class="md:w-1/2 md:pr-12"></div>
+                    <div class="md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold z-10">2</div>
+                    <div class="md:w-1/2 md:pl-12 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-playfair font-bold mb-2">基础语法</h3>
+                        <p class="text-gray-600">学习变量、数据类型、运算符、条件语句和循环等基本语法。</p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row items-center mb-12">
+                    <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                        <h3 class="text-2xl font-playfair font-bold mb-2">数据结构</h3>
+                        <p class="text-gray-600">掌握列表、元组、字典和集合等内置数据结构的使用方法。</p>
+                    </div>
+                    <div class="md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold z-10">3</div>
+                    <div class="md:w-1/2 md:pl-12"></div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="flex flex-col md:flex-row items-center mb-12">
+                    <div class="md:w-1/2 md:pr-12"></div>
+                    <div class="md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold z-10">4</div>
+                    <div class="md:w-1/2 md:pl-12 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-playfair font-bold mb-2">函数基础</h3>
+                        <p class="text-gray-600">学习函数的定义、参数传递、返回值和作用域等概念。</p>
+                    </div>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                        <h3 class="text-2xl font-playfair font-bold mb-2">实战练习</h3>
+                        <p class="text-gray-600">通过实际编程练习巩固所学知识，提高编程技能。</p>
+                    </div>
+                    <div class="md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold z-10">5</div>
+                    <div class="md:w-1/2 md:pl-12"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-playfair font-bold mb-4">开始你的Python学习之旅</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">
+                掌握Python基础，开启编程大门
+            </p>
+            <a href="syntax.html" class="inline-block px-8 py-4 bg-white text-primary rounded-lg shadow-lg hover:bg-gray-100 transition-colors font-medium">
+                立即开始
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-playfair font-bold mb-4">Python基础课程</h3>
+                    <p class="text-gray-400">
+                        专注于培养基础的Python编程素养
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">课程内容</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="syntax.html" class="text-gray-400 hover:text-white transition-colors">基础语法</a></li>
+                        <li><a href="data-structures.html" class="text-gray-400 hover:text-white transition-colors">数据结构</a></li>
+                        <li><a href="functions.html" class="text-gray-400 hover:text-white transition-colors">函数基础</a></li>
+                        <li><a href="practice.html" class="text-gray-400 hover:text-white transition-colors">实战练习</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-envelope mr-2"></i>
+                            <span>contact@example.com</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-github mr-2"></i>
+                            <span>github.com/1o3t</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 Python基础课程. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
