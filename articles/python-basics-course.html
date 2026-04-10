@@ -104,81 +104,96 @@
                                 <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">2</div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-1">Python基础语法</h3>
-                                    <p class="text-gray-600">变量、数据类型、运算符、控制流程（条件语句、循环）。</p>
+                                    <p class="text-gray-600">变量、数据类型（整数、浮点数、字符串、布尔值）、运算符、控制流程（条件语句、循环）。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">3</div>
                                 <div>
                                     <h3 class="font-semibold text-lg mb-1">数据结构</h3>
-                                    <p class="text-gray-600">列表、元组、字典、集合等内置数据结构的使用方法。</p>
+                                    <p class="text-gray-600">列表、元组、字典、集合等内置数据结构的使用方法和操作技巧。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">4</div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-1">函数编程</h3>
-                                    <p class="text-gray-600">函数定义、参数传递、返回值、作用域、lambda函数。</p>
+                                    <h3 class="font-semibold text-lg mb-1">函数编程基础</h3>
+                                    <p class="text-gray-600">函数定义、参数传递、返回值、作用域等基本概念。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">5</div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-1">面向对象编程</h3>
-                                    <p class="text-gray-600">类和对象、继承、多态、封装等面向对象编程概念。</p>
+                                    <h3 class="font-semibold text-lg mb-1">文件操作基础</h3>
+                                    <p class="text-gray-600">文件的读写操作，异常处理基础。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">6</div>
                                 <div>
-                                    <h3 class="font-semibold text-lg mb-1">文件操作</h3>
-                                    <p class="text-gray-600">文件的读写操作，异常处理，上下文管理器。</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">7</div>
-                                <div>
-                                    <h3 class="font-semibold text-lg mb-1">模块和包</h3>
-                                    <p class="text-gray-600">Python模块系统，标准库的使用，第三方包的安装和使用。</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">8</div>
-                                <div>
-                                    <h3 class="font-semibold text-lg mb-1">实战项目</h3>
-                                    <p class="text-gray-600">通过实际项目巩固所学知识，如简单的Web应用、数据处理脚本等。</p>
+                                    <h3 class="font-semibold text-lg mb-1">实战练习</h3>
+                                    <p class="text-gray-600">通过简单的编程练习巩固所学的基础概念。</p>
                                 </div>
                             </li>
                         </ul>
 
                         <h2 class="text-2xl font-playfair font-bold mb-6">示例代码</h2>
                         <div class="code-block mb-8">
-                            <pre><code># 打印Hello World
+                            <pre><code># 1. 基础语法示例
+# 打印Hello World
 print("Hello, Python!")
 
-# 定义函数
-def greet(name):
-    """问候函数"""
-    return f"Hello, {name}!"
+# 变量和数据类型
+name = "Python"
+age = 32
+pi = 3.14159
+is_awesome = True
 
-# 调用函数
-print(greet("World"))
+print(f"变量示例: 名称={name}, 年龄={age}, π={pi}, 是否 awesome={is_awesome}")
 
-# 列表操作
-fruits = ["apple", "banana", "cherry"]
-fruits.append("orange")
-print(f"Fruits: {fruits}")
-
+# 2. 控制流程
 # 条件语句
-age = 18
-if age >= 18:
-    print("成年人")
+score = 85
+if score >= 90:
+    print("优秀")
+elif score >= 80:
+    print("良好")
+elif score >= 60:
+    print("及格")
 else:
-    print("未成年人")
+    print("不及格")
 
 # 循环
+print("\n循环示例:")
 for i in range(5):
-    print(f"Number: {i}")</code></pre>
+    print(f"数字: {i}")
+
+# 3. 数据结构
+# 列表
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+fruits.insert(1, "grape")
+print(f"\n列表操作: {fruits}")
+
+# 字典
+student = {"name": "Alice", "age": 20, "major": "Computer Science"}
+student["grade"] = "A"
+print(f"字典操作: {student}")
+
+# 4. 函数基础
+def calculate_area(radius):
+    """计算圆的面积"""
+    return 3.14159 * radius * radius
+
+area = calculate_area(5)
+print(f"\n函数示例: 半径为5的圆面积 = {area}")
+
+# 5. 异常处理
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("\n异常处理: 除数不能为零")
+</code></pre>
                         </div>
 
                         <h2 class="text-2xl font-playfair font-bold mb-6">学习资源</h2>
@@ -206,10 +221,11 @@ for i in range(5):
                             通过本课程的学习，你将能够：
                         </p>
                         <ul class="list-disc pl-6 space-y-2 mb-8">
-                            <li class="text-gray-700">掌握Python的基本语法和编程思想</li>
+                            <li class="text-gray-700">掌握Python的基础语法和编程思想</li>
+                            <li class="text-gray-700">熟悉Python的基本数据结构（列表、元组、字典、集合）</li>
                             <li class="text-gray-700">能够编写简单的Python脚本解决实际问题</li>
-                            <li class="text-gray-700">了解Python的核心库和常用第三方库</li>
-                            <li class="text-gray-700">具备进一步学习Python高级特性的基础</li>
+                            <li class="text-gray-700">理解函数的基本概念和使用方法</li>
+                            <li class="text-gray-700">具备Python编程的基本素养，为进一步学习打下基础</li>
                         </ul>
                     </div>
                 </div>
