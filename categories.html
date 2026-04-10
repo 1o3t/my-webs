@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习分类 - 个人学习网页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        accent1: '#f59e0b',
+                        accent2: '#8b5cf6',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white bg-opacity-90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-playfair font-bold text-primary">My Learning</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="font-medium hover:text-primary transition-colors">首页</a>
+                <a href="categories.html" class="font-medium text-primary">分类</a>
+                <a href="#" class="font-medium hover:text-primary transition-colors">关于</a>
+            </div>
+            <button class="md:hidden text-gray-700">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-playfair font-bold text-center mb-4">学习分类</h1>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto">
+                按主题组织的学习内容，帮助你更系统地掌握知识
+            </p>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="px-4 py-2 bg-primary text-white rounded-full">全部</button>
+                <button class="px-4 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-100 transition-colors">编程开发</button>
+                <button class="px-4 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-100 transition-colors">设计创意</button>
+                <button class="px-4 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-100 transition-colors">语言学习</button>
+                <button class="px-4 py-2 bg-white text-gray-700 rounded-full hover:bg-gray-100 transition-colors">科学技术</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Content -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <!-- Programming Category -->
+            <div id="programming" class="mb-16">
+                <div class="flex items-center mb-8">
+                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fa fa-code text-primary text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-playfair font-bold">编程开发</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Python Course Template -->
+                    <a href="articles/python-basics-course.html" class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=python%20programming%20code%20on%20screen&image_size=landscape_4_3" alt="Python基础课程" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Python基础课程</h3>
+                            <p class="text-gray-600 mb-4">
+                                从零基础开始学习Python编程，包括语法基础、数据结构、函数和面向对象编程等核心概念。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">2026-04-10</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Python</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Web Development -->
+                    <a href="articles/web-development-basics.html" class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=web%20development%20code%20editor&image_size=landscape_4_3" alt="Web开发基础" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Web开发基础入门</h3>
+                            <p class="text-gray-600 mb-4">
+                                学习HTML、CSS和JavaScript的基础知识，构建第一个网页应用。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">2026-04-01</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Web</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- JavaScript -->
+                    <a href="#" class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=javascript%20code%20syntax&image_size=landscape_4_3" alt="JavaScript高级" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">JavaScript高级编程</h3>
+                            <p class="text-gray-600 mb-4">
+                                深入学习JavaScript的高级特性，包括闭包、原型链、异步编程等。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">2026-03-15</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">JavaScript</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Design Category -->
+            <div id="design" class="mb-16">
+                <div class="flex items-center mb-8">
+                    <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fa fa-paint-brush text-secondary text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-playfair font-bold">设计创意</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- UI Design -->
+                    <a href="articles/ui-design-principles.html" class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ui%20design%20process%20sketching&image_size=landscape_4_3" alt="UI设计" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">UI设计 principles</h3>
+                            <p class="text-gray-600 mb-4">
+                                探索现代UI设计的核心原则，包括排版、色彩、布局和用户体验。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">2026-03-25</span>
+                                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">UI</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Graphic Design -->
+                    <a href="#" class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=graphic%20design%20software%20interface&image_size=landscape_4_3" alt="平面设计" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">平面设计基础</h3>
+                            <p class="text-gray-600 mb-4">
+                                学习平面设计的基本原理和工具使用，包括Photoshop、Illustrator等。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">2026-03-10</span>
+                                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Graphic</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Language Category -->
+            <div id="language" class="mb-16">
+                <div class="flex items-center mb-8">
+                    <div class="w-10 h-10 bg-accent1/10 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fa fa-language text-accent1 text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-playfair font-bold">语言学习</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- English Learning -->
+                    <a href="articles/english-learning-tips.html" class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=language%20learning%20study%20materials&image_size=landscape_4_3" alt="英语学习" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">英语学习技巧分享</h3>
+                            <p class="text-gray-600 mb-4">
+                                分享有效的英语学习方法，包括词汇记忆、听力练习和口语提高的实用技巧。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">2026-03-18</span>
+                                <span class="px-3 py-1 bg-accent1/10 text-accent1 rounded-full text-sm">English</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Science Category -->
+            <div id="science" class="mb-16">
+                <div class="flex items-center mb-8">
+                    <div class="w-10 h-10 bg-accent2/10 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fa fa-flask text-accent2 text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-playfair font-bold">科学技术</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- AI Basics -->
+                    <a href="#" class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=artificial%20intelligence%20concept&image_size=landscape_4_3" alt="人工智能基础" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">人工智能基础</h3>
+                            <p class="text-gray-600 mb-4">
+                                了解人工智能的基本概念、发展历程和应用领域。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">2026-03-05</span>
+                                <span class="px-3 py-1 bg-accent2/10 text-accent2 rounded-full text-sm">AI</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Data Science -->
+                    <a href="#" class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=data%20science%20visualization&image_size=landscape_4_3" alt="数据科学" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">数据科学入门</h3>
+                            <p class="text-gray-600 mb-4">
+                                学习数据科学的基本概念和工具，包括数据清洗、分析和可视化。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">2026-02-28</span>
+                                <span class="px-3 py-1 bg-accent2/10 text-accent2 rounded-full text-sm">Data Science</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-playfair font-bold mb-4">My Learning</h3>
+                    <p class="text-gray-400">
+                        个人学习网页，记录学习过程和知识总结
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="categories.html" class="text-gray-400 hover:text-white transition-colors">分类</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">关于</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">联系我</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-envelope mr-2"></i>
+                            <span>contact@example.com</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-github mr-2"></i>
+                            <span>github.com/username</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 My Learning. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

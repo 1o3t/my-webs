@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人学习网页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        accent1: '#f59e0b',
+                        accent2: '#8b5cf6',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white bg-opacity-90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-playfair font-bold text-primary">My Learning</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="font-medium text-primary">首页</a>
+                <a href="categories.html" class="font-medium hover:text-primary transition-colors">分类</a>
+                <a href="#" class="font-medium hover:text-primary transition-colors">关于</a>
+            </div>
+            <button class="md:hidden text-gray-700">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-playfair font-bold text-gray-800 mb-4">
+                        记录学习的<span class="text-primary">点滴</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        探索知识的海洋，记录成长的足迹，分享学习的收获
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="categories.html" class="px-6 py-3 bg-primary text-white rounded-lg shadow-md hover:bg-primary/90 transition-colors">
+                            开始探索
+                        </a>
+                        <a href="#recent" class="px-6 py-3 bg-white text-primary border border-primary rounded-lg hover:bg-gray-50 transition-colors">
+                            最近学习
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 w-24 h-24 bg-accent1/20 rounded-full"></div>
+                        <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-accent2/20 rounded-full"></div>
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=minimal%20study%20desk%20with%20books%20and%20laptop&image_size=landscape_16_9" alt="学习场景" class="w-full h-auto rounded-xl shadow-lg relative z-10">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Categories -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-playfair font-bold mb-4">学习分类</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    按主题组织的学习内容，帮助你更系统地掌握知识
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Category 1 -->
+                <a href="categories.html#programming" class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-code text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">编程开发</h3>
+                    <p class="text-gray-600 mb-4">学习各种编程语言和开发技术</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span class="mr-2">12 篇文章</span>
+                        <i class="fa fa-arrow-right text-primary"></i>
+                    </div>
+                </a>
+                <!-- Category 2 -->
+                <a href="categories.html#design" class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-paint-brush text-secondary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">设计创意</h3>
+                    <p class="text-gray-600 mb-4">探索设计原理和创意表达</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span class="mr-2">8 篇文章</span>
+                        <i class="fa fa-arrow-right text-secondary"></i>
+                    </div>
+                </a>
+                <!-- Category 3 -->
+                <a href="categories.html#language" class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 bg-accent1/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-language text-accent1 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">语言学习</h3>
+                    <p class="text-gray-600 mb-4">提升语言能力和跨文化交流</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span class="mr-2">6 篇文章</span>
+                        <i class="fa fa-arrow-right text-accent1"></i>
+                    </div>
+                </a>
+                <!-- Category 4 -->
+                <a href="categories.html#science" class="bg-white rounded-xl shadow-md p-6 card-hover">
+                    <div class="w-12 h-12 bg-accent2/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-flask text-accent2 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">科学技术</h3>
+                    <p class="text-gray-600 mb-4">了解前沿科技和科学原理</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span class="mr-2">10 篇文章</span>
+                        <i class="fa fa-arrow-right text-accent2"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Posts -->
+    <section id="recent" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-playfair font-bold mb-4">最近学习</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    最近的学习记录和心得体会
+                </p>
+            </div>
+            <div class="space-y-8">
+                <!-- Post 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=web%20development%20code%20editor&image_size=landscape_4_3" alt="Web开发" class="w-full h-48 md:h-full object-cover">
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">编程开发</span>
+                                <span class="ml-4 text-gray-500 text-sm">2026-04-01</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">
+                                <a href="articles/web-development-basics.html" class="hover:text-primary transition-colors">
+                                    Web开发基础入门
+                                </a>
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                学习HTML、CSS和JavaScript的基础知识，构建第一个网页应用。本文介绍了Web开发的基本概念和实践技巧。
+                            </p>
+                            <a href="articles/web-development-basics.html" class="inline-flex items-center text-primary font-medium">
+                                阅读更多
+                                <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Post 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ui%20design%20process%20sketching&image_size=landscape_4_3" alt="UI设计" class="w-full h-48 md:h-full object-cover">
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">设计创意</span>
+                                <span class="ml-4 text-gray-500 text-sm">2026-03-25</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">
+                                <a href="articles/ui-design-principles.html" class="hover:text-primary transition-colors">
+                                    UI设计 principles
+                                </a>
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                探索现代UI设计的核心原则，包括排版、色彩、布局和用户体验。学习如何创建美观且实用的界面设计。
+                            </p>
+                            <a href="articles/ui-design-principles.html" class="inline-flex items-center text-primary font-medium">
+                                阅读更多
+                                <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Post 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=language%20learning%20study%20materials&image_size=landscape_4_3" alt="语言学习" class="w-full h-48 md:h-full object-cover">
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="px-3 py-1 bg-accent1/10 text-accent1 rounded-full text-sm">语言学习</span>
+                                <span class="ml-4 text-gray-500 text-sm">2026-03-18</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">
+                                <a href="articles/english-learning-tips.html" class="hover:text-primary transition-colors">
+                                    英语学习技巧分享
+                                </a>
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                分享有效的英语学习方法，包括词汇记忆、听力练习和口语提高的实用技巧。适合不同水平的英语学习者。
+                            </p>
+                            <a href="articles/english-learning-tips.html" class="inline-flex items-center text-primary font-medium">
+                                阅读更多
+                                <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-playfair font-bold mb-4">开始你的学习之旅</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">
+                记录每一个学习的瞬间，见证自己的成长
+            </p>
+            <a href="categories.html" class="inline-block px-8 py-4 bg-white text-primary rounded-lg shadow-lg hover:bg-gray-100 transition-colors font-medium">
+                浏览全部内容
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-playfair font-bold mb-4">My Learning</h3>
+                    <p class="text-gray-400">
+                        个人学习网页，记录学习过程和知识总结
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="categories.html" class="text-gray-400 hover:text-white transition-colors">分类</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">关于</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">联系我</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-envelope mr-2"></i>
+                            <span>contact@example.com</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fa fa-github mr-2"></i>
+                            <span>github.com/username</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 My Learning. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
